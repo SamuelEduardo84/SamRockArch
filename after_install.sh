@@ -39,3 +39,23 @@ EOF
 useradd -m -s "/bin/bash" -u 1000 -U -G "wheel" -C "$FULLNAME" $USERNAME
 echo "$PASSWORD" | passwd "$USERNAME" --stdin
 sed -i 's/#%wheel/%wheel/' /etc/sudoers
+
+# Configuring my variables at /etc/bash.bashrc
+cat << EOF > /etc/bash.bashrc
+
+## My Configuration ##
+
+# Aliases
+alias rm='rm -i'
+alias ip='ip -c'
+
+# Set vim as default text editor
+export VISUAL=vim
+export EDITOR=vim
+
+# History Date and Time
+export HISTTIMEFORMAT='%F %T - '
+
+# AWS CLI Completion
+#complete -C '/usr/local/bin/aws_completer' aws
+EOF
