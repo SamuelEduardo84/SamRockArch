@@ -41,7 +41,7 @@ echo "$PASSWORD" | passwd "$USERNAME" --stdin
 sed -i 's/#%wheel/%wheel/' /etc/sudoers
 
 # Configuring my variables at /etc/bash.bashrc
-cat << EOF > /etc/bash.bashrc
+cat << EOF >> /etc/bash.bashrc
 
 ## My Configuration ##
 
